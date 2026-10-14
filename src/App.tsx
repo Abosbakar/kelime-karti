@@ -6,6 +6,7 @@ import { CardsPage } from './pages/CardsPage';
 import { HomePage } from './pages/HomePage';
 import { PoolSessionPage } from './pages/PoolSessionPage';
 import { PoolsPage } from './pages/PoolsPage';
+import { PracticePage } from './pages/PracticePage';
 import { ProgressPage } from './pages/ProgressPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { PwaStatus } from './PwaStatus';
@@ -27,6 +28,7 @@ const TITLES: Record<string, string> = {
   '#/kartlar': 'Kartlar',
   '#/ilerleme': 'İlerleme',
   '#/ayarlar': 'Ayarlar',
+  '#/alistirma': 'Alıştırma',
 };
 
 function useHash() {
@@ -68,6 +70,8 @@ export default function App() {
         return <ProgressPage today={today} />;
       case '#/ayarlar':
         return <SettingsPage today={today} />;
+      case '#/alistirma':
+        return <PracticePage today={today} />;
       default:
         return <HomePage today={today} />;
     }

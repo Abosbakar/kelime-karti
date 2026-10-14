@@ -98,6 +98,18 @@ export function HomePage({ today }: { today: string }) {
 
       <ActivePools today={today} />
 
+      {stats.addedToday > 0 && (
+        <a className="card practice-cta" href="#/alistirma">
+          <span>
+            <strong>Bugün öğrendiklerinle alıştırma yap</strong>
+            <span className="muted small" style={{ display: 'block' }}>
+              {stats.addedToday} yeni kelime · şıklı ve yazılı sorular
+            </span>
+          </span>
+          <span className="button primary small">Başla</span>
+        </a>
+      )}
+
       {stats.total > 0 && (
         <a className="card" href="#/ilerleme" style={{ display: 'block', color: 'inherit', textDecoration: 'none' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>

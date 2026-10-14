@@ -1210,3 +1210,131 @@ a.pool-tile:hover {
   border-radius: 12px;
   font-size: 0.9rem;
 }
+
+/* ===== Alıştırma ===== */
+.practice-term {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 150px;
+  justify-content: center;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 560px) {
+  .choices {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+button.choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  padding: 14px 14px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, opacity 0.15s;
+}
+
+button.choice:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button.choice:disabled {
+  cursor: default;
+}
+
+button.choice .num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+button.choice.right {
+  border-color: var(--good);
+  background: var(--good-soft);
+}
+
+button.choice.right .num {
+  background: var(--good);
+  color: #fff;
+}
+
+button.choice.wrong {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+
+button.choice.wrong .num {
+  background: var(--bad);
+  color: #fff;
+}
+
+button.choice.dim {
+  opacity: 0.45;
+}
+
+.practice-feedback {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+button.letter {
+  min-width: 36px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Telefonda klavyede Türkçe harfler zaten var. */
+@media (pointer: coarse) {
+  .letters {
+    display: none;
+  }
+}
+
+a.card.practice-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: linear-gradient(135deg, var(--surface) 40%, var(--accent-soft));
+}

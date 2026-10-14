@@ -247,11 +247,11 @@ function Picker(props: { pool: PoolMeta; settings: PoolSettings; remaining: Pool
         </p>
         {undoBar}
         <div className="actions">
-          <a className="button primary" href="#/">
-            Ana sayfa
+          <a className="button primary" href="#/alistirma">
+            Bugünküleri alıştır
           </a>
-          <a className="button secondary" href="#/havuzlar">
-            Havuzlar
+          <a className="button secondary" href="#/">
+            Ana sayfa
           </a>
         </div>
       </div>
