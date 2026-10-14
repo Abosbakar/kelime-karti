@@ -35,8 +35,17 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // Excel okuyucu ayrı parça olarak yüklenir; çevrimdışı da çalışsın diye önbelleğe alınır.
         globPatterns: ['**/*.{js,css,html,png,svg,ico,webmanifest}'],
+        // Excel okuyucu (~365 KB) ilk açılışta inmesin: yalnızca Excel'den ekleme yapılınca indirilir ve
+        // sonra önbellekten (çevrimdışı da) çalışır. Böylece ilk açılış hafifler.
+        globIgnores: ['**/spreadsheet-*.js'],
+        runtimeCaching: [
+          {
+            urlPattern: /\/assets\/spreadsheet-[\w-]+\.js$/,
+            handler: 'CacheFirst',
+            options: { cacheName: 'excel-okuyucu', expiration: { maxEntries: 2 } },
+          },
+        ],
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true,
       },

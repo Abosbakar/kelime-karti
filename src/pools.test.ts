@@ -39,10 +39,11 @@ describe('poolProgress', () => {
 });
 
 describe('havuz verisi', () => {
-  it('katalogdaki her havuzun verisi var', async () => {
+  it('katalogdaki her havuzun verisi var ve kelime sayısı katalogla aynı', async () => {
     for (const pool of POOLS) {
       const list = await loadPool(pool.id);
       expect(list.length, pool.id).toBeGreaterThan(0);
+      expect(list.length, `${pool.id}: POOLS içindeki size güncel değil`).toBe(pool.size);
     }
   });
 
